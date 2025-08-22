@@ -13,11 +13,9 @@ app = Flask(__name__)
 # 本番環境ではより複雑で安全な鍵を使用してください。
 app.secret_key = "your_super_secret_key"
 
-API_KEY = "ee4dda9a38ff5a93a69fefc277f06829"
-
-# Gemini API Key
-# 環境変数から読み込むことを推奨します
-GEMINI_API_KEY = "AIzaSyCJJIyoY__PPJCIVxPsLLp8oGRe0oDeydY"
+# 環境変数に変更
+API_KEY = os.environ.get("API_KEY")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 
 # Gemini APIの初期化
 genai.configure(api_key=GEMINI_API_KEY)
