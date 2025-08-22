@@ -1,0 +1,275 @@
+/* ==========================================================================
+   全体的なスタイル
+   ========================================================================== */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow: auto;
+    /* 必要に応じてスクロールバーを表示 */
+    background-color: #E0FFF0;
+    /* 明るい黄緑の背景色 */
+    color: #333;
+    /* デフォルトのテキスト色 */
+    line-height: 1.6;
+    /* 行の高さを調整し、読みやすくする */
+    padding: 20px;
+    /* 全体の余白 */
+    box-sizing: border-box;
+    /* パディングを含めて幅を計算 */
+}
+
+/* ==========================================================================
+   メインコンテナ (detail-container)
+   ========================================================================== */
+.detail-container {
+    max-width: 900px;
+    /* コンテンツの最大幅を制限 */
+    width: 100%;
+    /* 親要素の幅いっぱいに広がる */
+    background-color: #ffffff;
+    /* コンテンツの背景は白 */
+    padding: 40px;
+    /* 内側の余白 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    /* 強めの影で奥行きを出す */
+    border-radius: 15px;
+    /* 少し丸みを帯びた角 */
+    margin: 40px auto;
+    /* 上下40px、左右自動で中央寄せ */
+    text-align: left;
+    /* コンテナ内のテキストは左寄せに戻す（読みやすさのため） */
+    position: relative;
+    /* 疑似要素の基準位置として設定 */
+    overflow: hidden;
+    /* 影やボーダーがはみ出さないように */
+}
+
+/* ==========================================================================
+   見出しスタイル
+   ========================================================================== */
+h1 {
+    color: #2E8B57;
+    /* 濃い緑を見出し色に */
+    text-align: center;
+    /* h1は引き続き中央寄せ */
+    margin-top: 0;
+    /* デフォルトマージンをリセット */
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #66CDAA;
+    /* ミントグリーンの下線 */
+    font-size: 2.5em;
+    /* h1のフォントサイズを大きく */
+}
+
+h2 {
+    color: #2E8B57;
+    /* 濃い緑を見出し色に */
+    font-size: 1.8em;
+    /* h2のフォントサイズ */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #66CDAA;
+    /* h2は細い下線 */
+    text-align: left;
+    /* h2は左寄せ */
+}
+
+/* ==========================================================================
+   「検索結果に戻る」リンク
+   ========================================================================== */
+.back-link {
+    display: inline-block;
+    /* パディングやマージンを適用可能に */
+    text-align: left;
+    margin-bottom: 25px;
+    color: #2E8B57;
+    /* 濃い緑をリンク色に */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 1px solid #66CDAA;
+    border-radius: 20px;
+    /* 丸みを帯びた形 */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    /* ホバー時のアニメーション */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* 控えめな影 */
+}
+
+.back-link:hover {
+    background-color: #66CDAA;
+    /* ホバーで背景色をミントグリーンに */
+    color: #ffffff;
+    /* ホバーで文字色を白に */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* ホバーで影を強調 */
+}
+
+/* ==========================================================================
+   公開日と元記事リンク
+   ========================================================================== */
+.published-at,
+.source-link {
+    color: #555;
+    /* やや薄いグレー */
+    font-size: 0.95em;
+    margin-bottom: 10px;
+    text-align: left;
+    /* 左寄せ */
+}
+
+.source-link a {
+    color: #66CDAA;
+    /* 元記事リンクはミントグリーン */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.source-link a:hover {
+    text-decoration: underline;
+    /* ホバーで下線 */
+}
+
+/* ==========================================================================
+   分析、提案、元の記事本文のセクション
+   ========================================================================== */
+.summary-section,
+.suggestion-section,
+.original-content-section {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+/* ==========================================================================
+   情報カード（分析、提案、元の記事本文）
+   ========================================================================== */
+.summary-card,
+.suggestion-card,
+.original-content-box {
+    background-color: #F8FFF8;
+    /* 非常に薄い緑がかった白 */
+    padding: 25px;
+    border-radius: 10px;
+    /* 少し丸みを帯びた角 */
+    margin-top: 20px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    /* 改行を保持 */
+    word-wrap: break-word;
+    /* 長い単語の折り返し */
+    border: 1px solid #98FB98;
+    /* 明るい緑のボーダー */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    /* 控えめな影 */
+    position: relative;
+    /* 疑似要素の基準位置として設定 */
+    z-index: 0;
+    /* 疑似要素が手前に来るように */
+}
+
+/* パズルピースの雰囲気を出すための疑似要素（カードの上下に小さな丸い突起） */
+/* これは複雑なclip-pathを使わずに、パズルピースの「接続部分」を表現する簡易的な方法です */
+.summary-card::before,
+.suggestion-card::before,
+.original-content-box::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #66CDAA;
+    /* ミントグリーン */
+    border-radius: 50%;
+    /* 円形 */
+    top: -10px;
+    /* 上端から少しはみ出す位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    /* カードの上に表示 */
+}
+
+.summary-card::after,
+.suggestion-card::after,
+.original-content-box::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #66CDAA;
+    /* ミントグリーン */
+    border-radius: 50%;
+    /* 円形 */
+    bottom: -10px;
+    /* 下端から少しはみ出す位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    /* カードの上に表示 */
+}
+
+/* カード内のpタグのマージンをリセットし、テキストを左寄せ */
+.summary-card p,
+.suggestion-card p,
+.original-content-box p {
+    margin: 0;
+    text-align: left;
+}
+
+/* ==========================================================================
+   一般的なpタグのスタイル
+   ========================================================================== */
+p {
+    margin-bottom: 1em;
+}
+
+/* ==========================================================================
+   レスポンシブ対応
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .detail-container {
+        padding: 20px;
+        margin: 20px auto;
+        width: 95%;
+        /* 小さな画面では幅を広げる */
+    }
+
+    h1 {
+        font-size: 2em;
+        /* h1のフォントサイズを調整 */
+        padding: 15px 0;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        /* h2のフォントサイズを調整 */
+    }
+
+    .summary-card,
+    .suggestion-card,
+    .original-content-box {
+        padding: 15px;
+        /* カードのパディングを調整 */
+    }
+
+    /* 小さな画面ではパズルピースの突起も小さく */
+    .summary-card::before,
+    .summary-card::after,
+    .suggestion-card::before,
+    .suggestion-card::after,
+    .original-content-box::before,
+    .original-content-box::after {
+        width: 15px;
+        height: 15px;
+        top: -7.5px;
+        bottom: -7.5px;
+    }
+}

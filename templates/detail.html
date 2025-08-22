@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>記事詳細</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/detailstyle.css') }}">
+</head>
+
+<body>
+    <div class="detail-container">
+        <a href="{{ url_for('select', keyword=request.args.get('keyword')) }}" class="back-link">← 検索結果に戻る</a>
+        <h1>{{ title }}</h1>
+        <p class="published-at">公開日: {{ publishedAt }}</p>
+        <p class="source-link">元記事: <a href="{{ url }}" target="_blank">{{ url }}</a></p>
+
+        <div class="summary-section">
+            <h2>AIによる要約</h2>
+            <div class="summary-card">
+                <p>{{ summary_text }}</p>
+            </div>
+        </div>
+        <div class="suggestion-section">
+            <h2>AIによる提案</h2>
+            <div class="suggestion-card">
+                <p>{{ suggestion_text }}</p>
+            </div>
+        </div>
+        <div class="original-content-section">
+            <h2>元の記事本文</h2>
+            <div class="original-content-box">
+                <p>{{ content }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

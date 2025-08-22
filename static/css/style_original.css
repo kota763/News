@@ -1,0 +1,217 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow: auto;
+    /* スクロールバーを非表示 */
+
+}
+
+h1 {
+    align-items: center;
+    background: transparent;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 32px;
+    height: auto;
+    justify-content: flex-start;
+    margin: 0px;
+    padding: 32px 32px 32px 32px;
+    width: 100%;
+    z-index: 100;
+    max-width: 100%;
+}
+
+/* 背景画像コンテナ */
+.background-container {
+    position: relative;
+    /* 子要素の絶対位置の基準にする */
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/background-home.png");
+    background-size: cover;
+    /* 画面いっぱいに表示 */
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* パズルピースやアイコンは個別にクラス指定 */
+.puzzle-piece {
+    position: absolute;
+    width: 120px;
+    /* 好きなサイズに変更 */
+    height: auto;
+    z-index: 10;
+}
+
+.piece {
+    width: 200px;
+    height: auto;
+    display: block;
+}
+
+.piece img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.piece1 {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+}
+
+.piece2 {
+    position: absolute;
+    top: 50%;
+    left: 55%;
+}
+
+.piece3 {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+}
+
+/* .piece1 img, .piece2 img, .piece3 img{
+    width:100%;
+    display: block;
+} */
+
+
+.label1,
+.label2,
+.label3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.label1 {
+    color: rgb(89, 103, 77);
+}
+
+.label2 {
+    color: rgb(22, 132, 3);
+}
+
+.label3 {
+    color: rgb(251, 12, 147);
+}
+
+
+/* ガチャガチャ機 */
+#gacha {
+    position: absolute;
+    bottom: 0%;
+    left: 10%;
+    width: 100px;
+    height: auto;
+    z-index: 5;
+}
+
+/* 検索フォームを中央やや上寄りに配置 */
+/* 検索フォームだけ中央寄せ（やや上寄せ） */
+.search-form-container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    z-index: 20;
+}
+
+/* フォーム内レイアウト */
+.search-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.search-form input {
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1.5px solid #acfa8b;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.search-form button {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid #acfa8b;
+}
+
+
+/* 以下select.htmlについて */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2列を自動で作成 */
+    /* grid-template-rows: repeat(2, 1fr); */
+    gap: 20px;
+}
+
+.article-cell {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* 縦方向に並べる */
+    justify-content: space-between;
+    /* align-items: center;  */
+
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* text-decoration: none; リンクの下線を消す */
+    color: #333;
+    background-color: #f9f9f9;
+    transition: transform 0.2s;
+    /* ホバー時のアニメーション */
+}
+
+.article-cell:hover {
+    transform: translateY(-5px);
+    /* マウスホバーで少し上に移動 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.article-details-link {
+    /* リンクの装飾を解除し、記事の詳細部分をコンテナいっぱいに広げる */
+    text-decoration: none;
+    color: #333;
+    display: block;
+    flex-grow: 1;
+    /* 親要素の残りのスペースを全て占有 */
+}
+
+/* リンクを横に並べるための新しいFlexboxコンテナ */
+.read-more-link {
+    text-align: right;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 10px;
+    /* 上部に余白を追加 */
+}
+
+
+/* detail.html */
+.detail-container {
+    max-width: 900px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+
+}

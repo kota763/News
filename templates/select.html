@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>検索結果</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/selectstyle.css')}}">
+</head>
+
+
+<body>
+    <div class="background-container">
+        <div class="logo-container">
+            <svg class="puzzle-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M 50 50 L 150 50 L 150 100 L 100 100 A 25 25 0 0 1 100 150 L 50 150 A 25 25 0 0 1 50 100 L 50 50 Z" />
+                <path d="M 150 50 L 150 150 L 100 150 A 25 25 0 0 1 100 100 L 150 100 Z" stroke="#e27c4a"
+                    stroke-width="5" />
+            </svg>
+            <div class="logo-text">PuzzNews</div>
+        </div>
+        <h1></h1>
+        <form method="post">
+            <input type="text" name="keyword" placeholder="🔍検索" required>
+            <button type="submit">検索</button>
+        </form>
+        <h2 class="keyword-display">検索ワード: {{ keyword }}</h2>
+
+        <hr>
+
+
+        {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+
+
+        <!-- <h2>検索結果</h2> -->
+        {% if articles %}
+        <div class="grid-container">
+            {% for article in articles %}
+            <div class="article-cell">
+                <a href="{{ url_for('detail', article_id=loop.index0) }}" class="article-details-link">
+                    <!-- <div class="article-details"> -->
+                    <h2>{{ article.title }}</h2>
+                    <p><strong>公開日:</strong> {{ article.publishedAt }}</p>
+                </a>
+                <a href="{{ article.url }}" target="_blank" class="read-more-link">元記事を読む</a>
+            </div>
+            {% endfor %}
+        </div>
+        <p>記事の詳細は「元記事を読む」からアクセスしてください。</p>
+        {% else %}
+        <p>記事が見つかりませんでした。キーワードを変更して再度お試しください。</p>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>

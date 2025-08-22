@@ -1,0 +1,249 @@
+/* ==========================================================================
+   全体的なスタイル
+   ========================================================================== */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow: auto;
+    background-color: #E0FFF0;
+    /* 明るい黄緑の背景色 */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.background-container {
+    padding-top: 0px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: auto;
+    margin-bottom: 0px;
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: 800;
+    color: #333;
+    letter-spacing: -2px;
+    margin: 0;
+}
+
+.puzzle-svg {
+    width: 80px;
+    height: 80px;
+    fill: none;
+    stroke: #4a90e2;
+    stroke-width: 5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.2));
+    transition: transform 0.5s ease-in-out;
+}
+
+.logo-container:hover .puzzle-svg {
+    transform: rotate(15deg) scale(1.1);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animated-puzzle-svg {
+    animation: rotate 10s linear infinite;
+}
+
+/* ==========================================================================
+   メインコンテナ (select-container)
+   ========================================================================== */
+.select-container {
+    max-width: 900px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    margin: 40px auto;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   見出しスタイル
+   ========================================================================== */
+h1 {
+    color: #2E8B57;
+    /* 濃い緑を見出し色に */
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #66CDAA;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #2E8B57;
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #66CDAA;
+    text-align: left;
+}
+
+/* ==========================================================================
+   検索フォーム
+   ========================================================================== */
+.search-form-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto;
+}
+
+.search-form input {
+    padding: 10px 15px;
+    font-size: 1em;
+    border: 1px solid #66CDAA;
+    border-radius: 25px;
+    outline: none;
+    transition: box-shadow 0.3s;
+}
+
+.search-form input:focus {
+    box-shadow: 0 0 8px rgba(102, 205, 170, 0.5);
+}
+
+.search-form button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 25px;
+    background-color: #2E8B57;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #66CDAA;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   検索結果表示
+   ========================================================================== */
+.keyword-display {
+    text-align: center;
+    color: #555;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    /* 検索結果を2x2にするための明確な変更 */
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    /* 各行の高さを自動調整 */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.article-cell {
+    background-color: #F8FFF8;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #98FB98;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-cell:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.article-details-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+.article-cell h2 {
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 1.2em;
+    color: #2E8B57;
+    border-bottom: none;
+    text-align: left;
+}
+
+.article-cell p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* ==========================================================================
+   レスポンシブ対応
+   ========================================================================== */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .select-container {
+        padding: 20px;
+        margin: 20px auto;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-form input,
+    .search-form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .grid-container {
+        /* スマートフォンでは1列表示にする */
+        grid-template-columns: 1fr;
+    }
+
+    .article-cell {
+        padding: 15px;
+    }
+
+    .article-cell h2 {
+        font-size: 1em;
+    }
+}
